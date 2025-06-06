@@ -28,3 +28,5 @@ CREATE TABLE student_course_map(
 
 ALTER TABLE student ADD advisor_id INT;
 ALTER TABLE student ADD FOREIGN KEY (advisor_id) REFERENCES advisor(advisor_id) ON DELETE SET NULL;
+ALTER TABLE student_course_map ADD FOREIGN KEY(student_id) REFERENCES student(student_id) ON DELETE CASCADE;
+ALTER TABLE student_course_map ADD FOREIGN KEY(course_code) REFERENCES course(course_code) ON DELETE CASCADE;
