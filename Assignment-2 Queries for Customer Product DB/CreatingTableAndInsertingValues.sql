@@ -31,8 +31,6 @@ CREATE TABLE order_details(
     FOREIGN KEY (product_id) REFERENCES products(product_id)
 );
 
-ALTER TABLE customers MODIFY customer_id INT AUTO_INCREMENT;
-
 
 INSERT INTO customers ( name, email, city, sign_up_date) VALUES
 ( 'Peter', 'peter@example.com', 'Delhi', '2024-01-07'),
@@ -42,21 +40,23 @@ INSERT INTO customers ( name, email, city, sign_up_date) VALUES
 ( 'Alice Johnson', 'alice@example.com', 'New York', '2023-01-15'),
 ( 'Charlie Brown', 'charlie@example.com', 'Chicago', '2023-03-05'),
 ( 'Bob Smith', 'bob@example.com', 'Los Angeles', '2023-02-10'),
-( 'Diana Prince', 'diana@example.com', 'Houston', '2023-04-22');
+( 'Diana Prince', 'diana@example.com', 'Houston', '2023-04-22'),
+('Abdullah','abdullah@example.com','Mumbai','2025-05-24');
 
 INSERT INTO products (product_id, product_name, category, price) VALUES
 (1, 'Wireless Mouse', 'Electronics', 25.99),
 (2, 'Bluetooth Speaker', 'Electronics', 45.00),
 (3, 'Notebook', 'Stationery', 5.50),
 (4, 'Pen Set', 'Stationery', 3.75),
-(5, 'Backpack', 'Bags', 35.25);
-
+(5, 'Backpack', 'Bags', 35.25),
+(6, 'Keyboard', 'ELectronics', 80);	
 
 INSERT INTO orders (order_id, customer_id, order_date, total_amount) VALUES
 (101, 1, '2023-05-10', 71.99),
 (102, 2, '2023-05-15', 40.75),
 (103, 1, '2023-06-01', 5.50),
-(104, 3, '2023-06-05', 45.00);
+(104, 3, '2023-06-05', 45.00),
+(105, 9, '2025-05-28', 80.00);
 
 INSERT INTO order_details (order_detail_id, order_id, product_id, quantity, price) VALUES
 (1001, 101, 1, 1, 25.99),
@@ -64,4 +64,5 @@ INSERT INTO order_details (order_detail_id, order_id, product_id, quantity, pric
 (1003, 102, 4, 2, 3.75),
 (1004, 102, 3, 1, 5.50),
 (1005, 103, 3, 1, 5.50),
-(1006, 104, 2, 1, 45.00);
+(1006, 104, 2, 1, 45.00),
+(1007, 105, 4, 6, 80.00);
