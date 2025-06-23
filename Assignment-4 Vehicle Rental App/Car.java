@@ -14,6 +14,22 @@ public class Car extends Vehicle {
 	private int numberOfDoors;
 	private boolean isAutomatic;
 
+	public int getNumberOfDoors() {
+		return numberOfDoors;
+	}
+
+	public void setNumberOfDoors(int numberOfDoors) {
+		this.numberOfDoors = numberOfDoors;
+	}
+
+	public boolean isAutomatic() {
+		return isAutomatic;
+	}
+
+	public void setAutomatic(boolean isAutomatic) {
+		this.isAutomatic = isAutomatic;
+	}
+
 	/**
 	 * Default constructor for Car.
 	 */
@@ -50,7 +66,7 @@ public class Car extends Vehicle {
 	@Override
 
 	public void setInputDetails() {
-
+		System.out.println("---Enter Car Details---");
 		super.setInputDetails();
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter the number of doors:");
@@ -68,10 +84,10 @@ public class Car extends Vehicle {
 	 */
 	@Override
 	public void displayDetails() {
+		System.out.println("---Displaying Car Details---");
 		super.displayDetails();
 		System.out.println("Number of doors:" + numberOfDoors);
-		System.out.println("Is Automatic:" + isAutomatic);
-		System.out.println("-------------");
+		System.out.println("Automatic:" + isAutomatic);
 
 	}
 
