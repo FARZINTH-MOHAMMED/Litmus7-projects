@@ -13,7 +13,6 @@ public class VehicleApp {
 
 	public static void main(String[] args) {
 		Car car1 = new Car();
-		car1.displayDetails();
 
 		car1.setInputDetails();
 		car1.displayDetails();
@@ -22,7 +21,6 @@ public class VehicleApp {
 		car2.displayDetails();
 
 		Bike bike1 = new Bike();
-		bike1.displayDetails();
 
 		bike1.setInputDetails();
 		bike1.displayDetails();
