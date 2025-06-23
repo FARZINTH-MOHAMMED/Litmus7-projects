@@ -20,6 +20,22 @@ public class Bike extends Vehicle {
 		engineCapacity = 0;
 	}
 
+	public boolean isHasGear() {
+		return hasGear;
+	}
+
+	public void setHasGear(boolean hasGear) {
+		this.hasGear = hasGear;
+	}
+
+	public int getEngineCapacity() {
+		return engineCapacity;
+	}
+
+	public void setEngineCapacity(int engineCapacity) {
+		this.engineCapacity = engineCapacity;
+	}
+
 	/**
 	 * Parameterized constructor with invoking {@code Vehicle} class parameterized
 	 * constructor.
@@ -42,6 +58,7 @@ public class Bike extends Vehicle {
 	 */
 	@Override
 	public void setInputDetails() {
+		System.out.println("---Enter bike details---");
 		super.setInputDetails();
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Does bike has gear?");
@@ -57,9 +74,9 @@ public class Bike extends Vehicle {
 	 */
 	@Override
 	public void displayDetails() {
+		System.out.println("---Displaying bike details---");
 		super.displayDetails();
 		System.out.println("Is bike with gear:" + hasGear);
 		System.out.println("Bike engine capacity:" + engineCapacity);
-		System.out.println("-------------");
 	}
 }
