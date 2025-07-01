@@ -15,7 +15,6 @@ public class Car extends Vehicle {
 	private int numberOfDoors;
 	private boolean isAutomatic;
 
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -49,9 +48,9 @@ public class Car extends Vehicle {
 	 */
 	public Car() {
 		super();
-		numberOfDoors=4;
-		isAutomatic=false;
-		
+		numberOfDoors = 4;
+		isAutomatic = false;
+
 	}
 
 	/*
@@ -71,7 +70,5 @@ public class Car extends Vehicle {
 		this.numberOfDoors = numberOfDoors;
 		this.isAutomatic = isAutomatic;
 	}
-
-
 
 }
