@@ -13,7 +13,6 @@ public class Bike extends Vehicle {
 	private boolean hasGear;
 	private int engineCapacity;
 
-	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
