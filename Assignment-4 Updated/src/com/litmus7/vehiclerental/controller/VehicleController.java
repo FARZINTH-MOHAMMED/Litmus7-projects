@@ -16,10 +16,10 @@ public class VehicleController {
 		Response response = new Response();
 		if (vehicle != null) {
 			vehicleService.addVehicle(vehicle);
-			response.setStatusCode(ERROR_STATUS_CODE);
+			response.setStatusCode(SUCCESS_STATUS_CODE);
 			response.setResponseMessage("Vehicle added succesfully");
 		} else {
-			response.setStatusCode(SUCCESS_STATUS_CODE);
+			response.setStatusCode(ERROR_STATUS_CODE);
 			response.setErrorMessage("Couldn't add vehicle");
 		}
 		return response;
