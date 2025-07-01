@@ -27,7 +27,7 @@ public class VehicleFileDao {
 		} catch (IOException e) {
 			throw new VehicleDataAccessExecption("Data couldn't loaded");
 		}
-		
+
 		return vehicles;
 	}
 
