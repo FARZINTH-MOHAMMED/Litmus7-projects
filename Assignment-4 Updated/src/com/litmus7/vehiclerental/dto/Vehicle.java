@@ -12,11 +12,7 @@ public class Vehicle {
 	private String brand;
 	private String model;
 	private double rentalPricePerDay;
-	private boolean isRented=false;
-	
-	
-
-
+	private boolean isRented = false;
 
 	@Override
 	public int hashCode() {
@@ -38,15 +34,14 @@ public class Vehicle {
 
 	@Override
 	public String toString() {
-		
-		return brand+":"+model;
+
+		return brand + ":" + model;
 	}
-	
-	
+
 	public boolean isRented() {
 		return isRented;
 	}
-	
+
 	public void setRented(boolean isRented) {
 		this.isRented = isRented;
 	}
@@ -96,6 +91,5 @@ public class Vehicle {
 		this.model = model;
 		this.rentalPricePerDay = rentalPricePerDay;
 	}
-
 
 }
