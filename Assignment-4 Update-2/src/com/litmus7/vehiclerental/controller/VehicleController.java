@@ -27,7 +27,7 @@ public class VehicleController {
 			}
 		} else {
 			response.setStatusCode(ERROR_STATUS_CODE);
-			response.setErrorMessage("Vehicle provided is null");
+			response.setErrorMessage("Vehicle provided is empty");
 		}
 		return response;
 	}
@@ -62,7 +62,8 @@ public class VehicleController {
 				response.setErrorMessage(e.getMessage());
 			}
 		} else {
-			return null;
+			response.setStatusCode(ERROR_STATUS_CODE);
+			response.setErrorMessage("Vehicle provided is empty");
 		}
 		return response;
 	}
@@ -74,7 +75,7 @@ public class VehicleController {
 			response.setStatusCode(SUCCESS_STATUS_CODE);
 		} else {		
 			response.setStatusCode(ERROR_STATUS_CODE);
-			response.setErrorMessage("Brand provided is null");
+			response.setErrorMessage("Brand provided is empty");
 		}
 		return response;
 	}
@@ -87,7 +88,7 @@ public class VehicleController {
 		} else {
 			
 			response.setStatusCode(ERROR_STATUS_CODE);
-			response.setErrorMessage("Model provided is null");
+			response.setErrorMessage("Model provided is empty");
 		}
 		return response;
 	}
@@ -111,7 +112,7 @@ public class VehicleController {
 			}
 		} else {
 			response.setStatusCode(ERROR_STATUS_CODE);
-			response.setErrorMessage("Vehicle provided is null");
+			response.setErrorMessage("Vehicle provided is empty");
 		}
 		
 		return response;
