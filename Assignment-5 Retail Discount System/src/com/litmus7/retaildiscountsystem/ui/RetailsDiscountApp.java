@@ -50,7 +50,7 @@ public class RetailsDiscountApp {
 			break;
 		}
 		default:
-			System.out.println("Something wrong");
+			System.out.println("Invalid vehicle type");
 
 		}
 
