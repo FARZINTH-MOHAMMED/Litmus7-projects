@@ -40,7 +40,7 @@ public class VehicleController {
 				response.setStatusCode(SUCCESS_STATUS_CODE);
 			} catch (VehicleServiceException e) {
 				response.setStatusCode(ERROR_STATUS_CODE);
-				response.setErrorMessage("Could'nt load vehicles list");
+				response.setErrorMessage(e.getMessage());
 			}
 
 		} else {
@@ -71,8 +71,13 @@ public class VehicleController {
 	public Response<Vehicle> searchVehicleByBrand(String brand) {
 		Response<Vehicle> response= new Response<>();
 		if (brand != null) {
-			response.setResponseData(vehicleService.searchVehicleByBrand(brand));
-			response.setStatusCode(SUCCESS_STATUS_CODE);
+			try {				
+				response.setResponseData(vehicleService.searchVehicleByBrand(brand));
+				response.setStatusCode(SUCCESS_STATUS_CODE);
+			} catch (VehicleServiceException e) {
+				response.setStatusCode(ERROR_STATUS_CODE);
+				response.setErrorMessage(e.getMessage());
+			}
 		} else {		
 			response.setStatusCode(ERROR_STATUS_CODE);
 			response.setErrorMessage("Brand provided is empty");
@@ -80,11 +85,17 @@ public class VehicleController {
 		return response;
 	}
 
+	
 	public Response<Vehicle> searchVehicleByModel(String model) {
 		Response<Vehicle> response= new Response<>();
 		if (model != null) {
-			response.setResponseData(vehicleService.searchVehicleByModel(model));
-			response.setStatusCode(SUCCESS_STATUS_CODE);
+			try {
+				response.setResponseData(vehicleService.searchVehicleByModel(model));
+				response.setStatusCode(SUCCESS_STATUS_CODE);
+			} catch (VehicleServiceException e) {
+				response.setStatusCode(ERROR_STATUS_CODE);
+				response.setErrorMessage(e.getMessage());
+			}
 		} else {
 			
 			response.setStatusCode(ERROR_STATUS_CODE);
@@ -93,6 +104,8 @@ public class VehicleController {
 		return response;
 	}
 
+	
+	
 	public Response<Double> calculateTotalRentalPrice() {
 		Response<Double> response= new Response<Double>();
 		response.setResponseData(vehicleService.calculateTotalRentalPrice());

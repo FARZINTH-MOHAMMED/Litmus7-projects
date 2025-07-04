@@ -18,7 +18,7 @@ public class VehicleService {
 			vehicles=vehicleFileDao.loadVehicle(filepath);
 			return vehicles;
 		} catch (VehicleDataAccessExecption e) {
-			throw new VehicleServiceException();
+			throw new VehicleServiceException(e.getMessage(),e);
 		}
 	}
 	
@@ -34,22 +34,22 @@ public class VehicleService {
 	
 
 	
-	public Vehicle searchVehicleByBrand(String brand) {
+	public Vehicle searchVehicleByBrand(String brand) throws VehicleServiceException{
 		for(Vehicle vehicle:vehicles) {
-			if((vehicle.getBrand()).equals(brand))
+			if((vehicle.getBrand()).equalsIgnoreCase(brand))
 				return vehicle;
 		}
 		
-		return null;
+		throw new VehicleServiceException("Couldn't find vehicle with brand name "+brand);
 	}
 	
-	public Vehicle searchVehicleByModel(String model) {
+	public Vehicle searchVehicleByModel(String model) throws VehicleServiceException{
 		for(Vehicle vehicle:vehicles) {
 			if((vehicle.getModel()).equals(model))
 				return vehicle;
 		}
 		
-		return null;
+		throw new VehicleServiceException("Couldn't find vehicle with model name "+model);
 	}
 	
 	public double calculateTotalRentalPrice() {
@@ -60,11 +60,6 @@ public class VehicleService {
 		return totalRentalPrice;
 	}
 	
-//	public void displayVehicleWithRentalPrice() {
-//		for(Vehicle vehicle:vehicles) {
-//			System.out.println("\t"+vehicle.getBrand()+":"+vehicle.getModel()+"="+vehicle.getRentalPricePerDay());
-//		}
-//	}
 	
 	public String rentVehicle(Vehicle vehicle) throws VehicleServiceException{
 		if(vehicle.isRented()==false) {	

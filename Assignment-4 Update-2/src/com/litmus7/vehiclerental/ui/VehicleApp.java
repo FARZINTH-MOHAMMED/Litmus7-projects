@@ -2,7 +2,6 @@ package com.litmus7.vehiclerental.ui;
 
 import java.util.List;
 import com.litmus7.vehiclerental.controller.VehicleController;
-
 import com.litmus7.vehiclerental.dto.Response;
 import com.litmus7.vehiclerental.dto.Vehicle;
 
@@ -25,21 +24,22 @@ public class VehicleApp {
 
 		Vehicle car1 =UiHandler.inputVehicleDetails();
 		
+	
 		Response<String> addVehicleResponse = vehicleController.addVehicle(car1);
 		ResponseHandler.handleResponse(addVehicleResponse);
 
-		Response<Vehicle> searchVehicleResponseBrand = vehicleController.searchVehicleByBrand("Toyota");
+		Response<Vehicle> searchVehicleResponseBrand = vehicleController.searchVehicleByBrand("suzuki");
 		ResponseHandler.handleResponse(searchVehicleResponseBrand);
-		
-		UiHandler.displayVehicleDetails(searchVehicleResponseBrand.getResponseData(),"Car");
+		UiHandler.displayVehicleDetails(searchVehicleResponseBrand.getResponseData(),"Bike");
 
 		Response<Vehicle> searVehicleByModelRepsonse = vehicleController.searchVehicleByModel("R15");
 		ResponseHandler.handleResponse(searVehicleByModelRepsonse);
-		
+		UiHandler.displayVehicleDetails(searchVehicleResponseBrand.getResponseData(),"Bike");
 
+		
 		Response<String> rentResponse = vehicleController.rentVehicle(car1);
 		ResponseHandler.handleResponse(rentResponse);
-
+	
 		Response<String> returnVehicleResponse = vehicleController.returnVehicle(car1);
 		ResponseHandler.handleResponse(returnVehicleResponse);
 

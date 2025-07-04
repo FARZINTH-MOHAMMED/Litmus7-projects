@@ -1,6 +1,6 @@
 package com.litmus7.vehiclerental.dto;
 
-import java.util.Scanner;
+
 
 /**
  * Bike class inheriting {@code Vehicle} class including bike specifc

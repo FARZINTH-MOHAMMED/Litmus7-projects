@@ -25,9 +25,9 @@ public class VehicleFileDao {
 			}
 
 		} catch (IOException e) {
-			throw new VehicleDataAccessExecption("Data couldn't loaded");
+			throw new VehicleDataAccessExecption("Couldn't load vehicle list",e);
 		} catch (Exception e) {
-			throw new VehicleDataAccessExecption("Some error occured");
+			throw new VehicleDataAccessExecption("Something went wrong",e);
 		}
 		return vehicles;
 	}
