@@ -5,8 +5,7 @@ import java.util.regex.Pattern;
 
 public class ValidationUtil {
 	public static boolean checkAge(User user) {
-		if (user.getAge() < ApplicationConstants.getMIN_AGE_LIMIT()
-				|| user.getAge() > ApplicationConstants.getMAX_AGE_LIMIT()) {
+		if (user.getAge() < ApplicationConstants.MIN_AGE_LIMIT || user.getAge() > ApplicationConstants.MAX_AGE_LIMIT) {
 			return true;
 		} else
 			return false;

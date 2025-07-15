@@ -16,18 +16,18 @@ public class UserRegistrationController {
 		if (user.getUserName() != null && user.getEmail() != null && user.getPassword() != null) {
 			try {
 				User registeredUser = userRegistrationService.registerUser(user);
-				response.setStatusCode(ApplicationConstants.getSUCCESS_STATUS_CODE());
+				response.setStatusCode(ApplicationConstants.SUCCESS_STATUS_CODE);
 				response.setResponseData(registeredUser);
 
 			} catch (UserServiceException e) {
-				response.setStatusCode(ApplicationConstants.getERROR_STATUS_CODE());
+				response.setStatusCode(ApplicationConstants.ERROR_STATUS_CODE);
 				response.setErrorMessage(e.getMessage());
 			} catch (Exception e) {
-				response.setStatusCode(ApplicationConstants.getERROR_STATUS_CODE());
+				response.setStatusCode(ApplicationConstants.ERROR_STATUS_CODE);
 				response.setErrorMessage(e.getMessage());
 			}
 		} else {
-			response.setStatusCode(ApplicationConstants.getERROR_STATUS_CODE());
+			response.setStatusCode(ApplicationConstants.ERROR_STATUS_CODE);
 			response.setErrorMessage("Data insufficient");
 
 		}
@@ -41,13 +41,13 @@ public class UserRegistrationController {
 			try {
 
 				response.setResponseData(userRegistrationService.getRegisteredUserByUsername(username));
-				response.setStatusCode(ApplicationConstants.getSUCCESS_STATUS_CODE());
+				response.setStatusCode(ApplicationConstants.SUCCESS_STATUS_CODE);
 			} catch (UserServiceException e) {
-				response.setStatusCode(ApplicationConstants.getERROR_STATUS_CODE());
+				response.setStatusCode(ApplicationConstants.ERROR_STATUS_CODE);
 				response.setErrorMessage(e.getMessage());
 			}
 		} else {
-			response.setStatusCode(ApplicationConstants.getERROR_STATUS_CODE());
+			response.setStatusCode(ApplicationConstants.ERROR_STATUS_CODE);
 			response.setErrorMessage("username cannot be null");
 		}
 		return response;

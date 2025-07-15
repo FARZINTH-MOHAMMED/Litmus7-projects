@@ -20,7 +20,7 @@ public class UserDao {
 		String password = null;
 
 		try (Connection connection = DBConnectionUtil.getConnection();
-				PreparedStatement statment = connection.prepareStatement(SQLConstants.getInsertUserData())) {
+				PreparedStatement statment = connection.prepareStatement(SQLConstants.INSERT_USER_DATA)) {
 
 			statment.setString(1, user.getUserName());
 			statment.setInt(2, user.getAge());
@@ -28,15 +28,15 @@ public class UserDao {
 			statment.setString(4, user.getPassword());
 			statment.executeUpdate();
 
-			try (PreparedStatement resultStatment = connection.prepareStatement(SQLConstants.getGetResonseUserData())) {
+			try (PreparedStatement resultStatment = connection.prepareStatement(SQLConstants.RESPONSE_USER_DATA)) {
 				resultStatment.setString(1, user.getUserName());
 				try (ResultSet result = resultStatment.executeQuery()) {
 					if (result.next()) {
-						userId = result.getInt(SQLConstants.getUSERID());
-						age = result.getInt(SQLConstants.getAGE());
-						username = result.getString(SQLConstants.getUSERNAME());
-						email = result.getString(SQLConstants.getEMAIL());
-						password = result.getString(SQLConstants.getPASSWORD());
+						userId = result.getInt(SQLConstants.USERID);
+						age = result.getInt(SQLConstants.AGE);
+						username = result.getString(SQLConstants.USERNAME);
+						email = result.getString(SQLConstants.EMAIL);
+						password = result.getString(SQLConstants.PASSWORD);
 					}
 					User registeredUser = new User(userId, username, age, email, password);
 					return registeredUser;
@@ -54,14 +54,14 @@ public class UserDao {
 		String username = null;
 		String email = null;
 		try (Connection connection = DBConnectionUtil.getConnection();
-				PreparedStatement statment = connection.prepareStatement(SQLConstants.getGetUserData())) {
+				PreparedStatement statment = connection.prepareStatement(SQLConstants.USER_DATA)) {
 
 			statment.setString(1, userName);
 			try (ResultSet result = statment.executeQuery()) {
 				if (result.next()) {
-					age = result.getInt(SQLConstants.getAGE());
-					username = result.getString(SQLConstants.getUSERNAME());
-					email = result.getString(SQLConstants.getEMAIL());
+					age = result.getInt(SQLConstants.AGE);
+					username = result.getString(SQLConstants.USERNAME);
+					email = result.getString(SQLConstants.EMAIL);
 				}
 				return new User(username, age, email);
 			}
